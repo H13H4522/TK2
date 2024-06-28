@@ -1,0 +1,260 @@
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>TokenTraders - Надежный обменик</title>
+	<link rel="stylesheet" href="main.css" type="text/css" charset="utf-8">
+	<meta name="description" content="Крипто обменик, поддержка многих волют и карт">
+	<meta name="keywords" content="Криптообменик, Bybit, Biycoin, биткоинб, ноткоин, криптобиржа, биржа">
+    <meta name=”x-apple-disable-message-reformatting”>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no" />
+	<meta http-equiv="cleartype" content="on">
+	<link href="img/icon.ico" rel="shortcut icon" type="image/x-icon">
+
+
+
+</head>
+<body>
+    <div id="loading" class="loading-overlay">
+        <div class="three col">
+            <div class="loader" id="loader-3"></div>
+        </div>
+    </div>
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+  var submitBtn = document.getElementById('submitBtn');
+  var loadingOverlay = document.getElementById('loading');
+
+  submitBtn.addEventListener('click', function() {
+    console.log('Submit button clicked'); // Check if this message appears in the console
+    loadingOverlay.classList.add('active');
+
+    // Simulate loading process (you can replace this with actual submission code)
+    setTimeout(function() {
+      loadingOverlay.classList.remove('active');
+    }, 3000); // Adjust the timeout as needed, this is just a placeholder
+  });
+});
+</script>
+	<header>
+		<div id="logo">
+			<a href="" title="На главную">
+				<img src="img/logo.png" title="TokenTraders" alt="TokenTraders">
+				<span>TokenTraders</span> 
+			</a>
+		</div>
+		<div id="about">
+			<a href="" title="Отзывы">отзывы</a>
+			<a href="" title="Тарифы">тарифы</a>
+			<a href="" title="контакты">контакты</a>
+		</div>
+		<div id="reg">
+			<a href="reg/REG.html" title="">
+				<img src="img/reg.png" title="" alt="">
+			</a>
+		</div>
+	</header>
+	<site>
+        <div id='perv1'>
+        <div id='spr'>
+		  <div id='obsh'>
+			 <span id="slogan" >Доверяйте финансы</span>
+            <span id="slogan2">Профессионалам</span>
+		  </div>
+            <div id='slova'>
+                <img src='img/slova.png'>
+            </div>
+            <div id='posl'>
+                <span>Покупайте и продавайте криптовалюту быстро, комфортно и безопасно из любой точки мира</span>
+            </div>
+        </div>
+        <div id='exchange'>
+			<div id="panel">
+                <div id='go1'>
+                    <span id='go'>Начать обмен</span>
+                </div>
+                <div id='yg'>
+                    <p id='yg1'>Вы отдаете</p>
+                    <select class='yougive' id="crypto-select" onchange="getCryptoRates()">
+                        <option value="bitcoin">bitcoin</option>
+                        <option value="ethereum">ethereum</option>
+                        <option value="solana">solana</option>
+                        <option value="usdt">usdt</option>
+                        <option value="litecoin">litecoin</option>
+                    </select>
+                    <div id='li'>
+                        <span>Мин.: 30000 RUB / Макс.: 12581526.1 RUB</span>
+                    </div>
+                    <span id="selected-crypto"></span>
+                </div>
+                <div id='yge'>
+                    <span>Вы получаете</span>
+                    <select class='youget' id="bank-select">
+                        <option>Тинькофф</option>
+                        <option>СберБанк</option>
+                        <option>СБП</option>
+                        <option>Райфайзен</option>
+                        <option>ОЗОН Банк</option>
+                        <option>Яндекс Банк</option>
+                    </select>
+                </div>
+                <div id='gi1'>
+                    <span>Введите сумму</span>
+                    <input type="text" class='youget' id='yugive' oninput="schet()" onkeypress="return isNumberKey(event)">
+                    <span>Вы получите(RUB)</span>
+                    <input  type='text' class='youget' id='yuget' readonly>
+                    <div id="error-message" style="color: red;"></div>
+                </div>
+                <script>
+    // Функция для проверки наличия сообщения об ошибке
+    function checkErrorMessage() {
+        var errorMessage = document.getElementById('error-message').innerText;
+        var exchangeButton = document.getElementById('exchange-button');
+
+        // Если сообщение об ошибке не пустое, отключаем кнопку
+        if (errorMessage.trim() !== "") {
+            exchangeButton.style.pointerEvents = 'none';
+            exchangeButton.style.opacity = '0.5'; // Для визуальной индикации
+        } else {
+            exchangeButton.style.pointerEvents = 'auto';
+            exchangeButton.style.opacity = '1'; // Восстанавливаем первоначальный вид
+        }
+    }
+
+    // Создаем MutationObserver для отслеживания изменений в errorMessage
+    var observer = new MutationObserver(checkErrorMessage);
+
+    // Конфигурация observer (отслеживание изменения текста)
+    var config = { childList: true, subtree: true, characterData: true };
+
+    // Элемент для наблюдения
+    var targetNode = document.getElementById('error-message');
+
+    // Начало наблюдения
+    observer.observe(targetNode, config);
+
+    // Проверка на наличие сообщения об ошибке при загрузке страницы
+    window.onload = checkErrorMessage;
+</script>
+                <span id='ky'><span id="crypto-rate"></span></span>
+                <p id="rate">Загрузка курса...</p>
+                <div id="timer">30</div>
+                    <a href="2/2.html" id="exchange-button">
+                    <img id="ex" src="img/exchange.png" alt="Обмен">
+                        <script>
+    document.getElementById('exchange-button').addEventListener('click', function() {
+        const selectedCrypto = document.getElementById('crypto-select').value;
+        const selectedBank = document.getElementById('bank-select').value;
+
+        localStorage.setItem('selectedCrypto', selectedCrypto);
+        localStorage.setItem('selectedBank', selectedBank);
+    });
+</script>
+                    </a>
+                </div>
+            </div>
+        </div>
+	   </site>
+
+        <div id='kart2'>
+                <img src='img/kart.png'>
+            
+        </div>
+        <div class='obm'>
+            <img id='fo' src="img/fon.png">
+            <img id='tk' src='img/obm.png'>
+            <img id='fo2'src="img/fon2.png">
+        </div>
+        <div id='te'>
+            <span id='ot'><center>Отзывы</center></span>
+            <span id='otz'><center>Более 2000+ отзывов о нашей работе</center></span>
+        </div>
+    
+    <div>
+        
+        <comm float: center >
+                <div id='av1'>
+                    <img src="img/avatar.png">
+                    <span id='im1'><strong>Генадий Жуков</strong></span>
+                    <div id='tex1'>
+                        <span id='tx1'>Впервые менял криптовалюту на этом обменнике, не прошло и 15 минут как денежка прилетела на карту еще и по сладкому курсу. С интерфейсом проблем не было, все доступно и понятно.…</span>
+                    </div>
+                </div>
+            <div id='ot21'>
+                <img src="img/avatar.png" id='av2'>
+                <span id='im2'><strong>Иван Титов</strong></span>
+                <div id='tex2'>
+                    <span id='tx2'>Удачно и выгодно обменял TRX на рубли, резервов большое количество, интерфейс понятный и удобный.</span>
+                </div>
+            </div>
+            <div id='ot31'>
+                <img src="img/avatar.png" id='av3'>
+                <span id='im3'><strong>Дмитрий Пагонаж</strong></span>
+                <div id='tex2'>
+                    <span id='tx2'>Прикольный обменник, не ожидал что работает так быстро и четко. Буду юзать на постоянной основе!</span>
+                </div>
+            </div>
+        </comm>
+    </div>
+    <div id='obmen'>
+        <img src="img/obm1.png">
+        <img src="img/obm2.png">
+        <img src="img/obm3.png">
+        <img src="img/obm4.png">
+        <img src="img/obm5.png">
+        <img src="img/obm6.png">
+        <img src="img/obm7.png">
+        <img src="img/obm8.png">
+        <img src="img/obm9.png">
+        <img src="img/obm10.png">
+    </div>
+    <script src="JS.js">
+    function schet() {
+        var number = parseFloat(document.getElementById("yougive").value);
+        var result = number * 48;
+        document.getElementById("youget").value = result;
+    }
+    </script>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Информация</h3>
+            <ul>
+                <li><a href="/main">Главная</a></li>
+                <li><a href="/about">О нас</a></li>
+                <li><a href="/reviews">Отзывы</a></li>
+                <li><a href="/rates">Тарифы</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Аккаунт</h3>
+            <ul>
+                <li><a href="/account">Личный кабинет</a></li>
+                <li><a href="/security">Настройки безопасности</a></li>
+                <li><a href="/status-check">Проверка статуса заявки</a></li>
+                <li><a href="/transactions">Ваши сделки</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Контакты</h3>
+            <p><a href="/contact/phone">+7 (812) 218-29-17</a></p><br>
+            <p><a href="mailto:info@TerCoins.com">info@TerCoins.com</a></p><br>
+            <p><a href="/contact/address">Комендантский проспект, 21к1, Санкт-Петербург</a></p><br>
+            <p><a href="https://t.me/TokenTraiders">@TokenTraiders</a></p><br>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p><a href="/site-policy">© 2023-2024 TerCoins.com — Обменный пункт электронных валют</a></p>
+        <p><a href="/rules">Правила сайта</a> | <a href="/privacy">Политика конфиденциальности</a> | <a href="/aml-policy">Политика AML</a></p>
+    </div>
+
+</footer>
+     <div id="unsupported-message">
+    <p>Обменник не поддерживается на этом разрешении. Пожалуйста, увеличьте разрешение.</p>
+</div>       
+</body>
+<gtm

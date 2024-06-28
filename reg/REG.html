@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в TokenTraders</title>
+    <link rel="stylesheet" href="reg.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Войти</h2>
+        <form action="/submit-login" method="post">
+            <div class="input-group">
+                <input type="text" name="username" id="username" placeholder="Логин или e-mail" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" id="password" placeholder="Пароль" required>
+            </div>
+            <div class="input-group">
+                <button type="submit">Войти</button>
+            </div>
+            <div class="links">
+                <a href="2/reg2.html">Регистрация</a> | <a href='2/reg2.html'>Забыли пароль?</a>
+            </div>
+        </form>
+        <button id='back' type="button" onclick="javascript:history.back()">Назад</button>
+    </div>
+</body>
+</html>
