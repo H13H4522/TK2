@@ -1,0 +1,231 @@
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>TokenTraders - Надежный обменик</title>
+	<link rel="stylesheet" href="main.css" type="text/css" charset="utf-8">
+	<meta name="description" content="Крипто обменик, поддержка многих волют и карт">
+	<meta name="keywords" content="Криптообменик, Bybit, Biycoin, биткоинб, ноткоин, криптобиржа, биржа">
+    <meta name=”x-apple-disable-message-reformatting”>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no" />
+	<meta http-equiv="cleartype" content="on">
+	<link href="img/icon.ico" rel="shortcut icon" type="image/x-icon">
+
+
+
+</head>
+<body>
+    <div id="loading" class="loading-overlay">
+        <div class="three col">
+            <div class="loader" id="loader-3"></div>
+        </div>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const loadingOverlay = document.getElementById('loading');
+
+      function showLoading() {
+        loadingOverlay.classList.add('active');
+      }
+
+      function hideLoading() {
+        loadingOverlay.classList.remove('active');
+      }
+
+      // Показать анимацию загрузки при клике на ссылку
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          showLoading();
+          setTimeout(() => {
+            window.location.href = href;
+          }, 1000); // Имитация загрузки (1 секунда в данном случае)
+        });
+      });
+    });
+    </script>
+<header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="img/logo.png" alt="TokenTraders">
+                <span>TokenTraders</span>
+            </div>
+            <nav class="navigation">
+                <a href="reviews/reviews.html">отзывы</a>
+                <a href="rules/rules.html">правила</a>
+                <a href="contacts/contacts.html">контакты</a>
+            </nav>
+            <div class="menu-login">
+                <div class="login">
+                    <a href="registration/REG.html"><img src="img/reg.png" alt="Войти"></a>
+                </div>
+                <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdownMenu" style=" display: block; max-height: 117px; text-align: -webkit-center; display: none">
+            <a href="#">отзывы</a>
+            <a href="rules/rules.html">правила</a>
+            <a href="contacts/contacts.html">контакты</a>
+        </div>
+    </header>
+	<site>
+        <div id='ofik'>
+            <div id='left_side'>
+                <h1>Конвертер и обменник криптовалют</h1>
+                <h2>Что такое Крипто-конвертер?</h2>
+                <p>Конвертер криптовалют - это инструмент, который вы можете использовать для простого преобразования одной валюты в другую.</p>
+                <p>Используйте наш онлайн-калькулятор криптовалют для быстрой и эффективной мгновенной конвертации криптовалют, в любое время.</p>
+            </div>
+            <div id='right_side'>
+                <div class="container6">
+        <h2>Конвертировать</h2>
+
+        <div class="input-group">
+            <input type="text" class="yougive" id="yugive" oninput="calculateExchangeRate()" onkeypress="return isNumberKey(event)" placeholder="Отдаете">
+            <select class="yougive" id="crypto-select" onchange="getCryptoRates()">
+                <option value="usdt">USDT</option>
+                <option value="bitcoin">BTC</option>
+                <option value="ethereum">ETH</option>
+                <option value="solana">SOL</option>
+                <option value="litecoin">LTC</option>
+            </select>
+        </div>
+<div class="swap-icon">
+            <img src="img/down.png" alt="Swap">
+        </div>
+        <div class="input-group">
+            <input type="text" class="youget readonly" id="yuget" readonly placeholder="Получаете">
+            <select class="youget" id="bank-select">
+                <option>Тинькофф</option>
+                <option>СберБанк</option>
+                <option>СБП</option>
+                <option>Райфайзен</option>
+                <option>ОЗОН Банк</option>
+                <option>Яндекс Банк</option>
+            </select>
+        </div>
+
+        <p class="rate" id="crypto-rate">Курс криптовалюты к USDT: 62100.88 USDT</p>
+        <p class="rate" id="rate">Курс BTC-RUB: 5824645.97 RUB</p>
+
+        <button id="exchange-button" onclick="handleExchange()">Конвертировать</button>
+ <script>
+    document.getElementById('exchange-button').addEventListener('click', function() {
+        const selectedCrypto = document.getElementById('crypto-select').value;
+        const selectedBank = document.getElementById('bank-select').value;
+
+        localStorage.setItem('selectedCrypto', selectedCrypto);
+        localStorage.setItem('selectedBank', selectedBank);
+    });
+</script>
+        <div id="timer">30</div>
+        <div id="error-message"></div>
+                </div>
+            </div>
+        </div>
+	   </site>
+
+        <div id='kart2'>
+                <img src="img/kart.png" class="moving-image">
+            
+
+    <div id="twocon">
+        <div class="text-container4">
+            <h1>Каковы преимущества криптовалютного<br>
+            конвертера<span class="highlight">TokenTraders?</span></h1>
+        </div>
+        <div class="container4">
+            <div class="image-container4">
+                <img src="img/order_btc_450321_662.jpg" alt="Convert history">
+            </div>
+            <div class="benefit-content">
+                <div class="benefit">
+                    <div class="benefit-icon">➊</div>
+                    <div>
+                        <div class="benefit-title">Молниеносная конвертация</div>
+                        <div class="benefit-description">Наш конвертер цифровой валюты позволяет проводить обмены быстро и без задержек.</div>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">➋</div>
+                    <div>
+                        <div class="benefit-title">Полная история транзакций</div>
+                        <div class="benefit-description">Отслеживайте все свои предыдущие конвертации и контролируйте процесс обмена криптовалют.</div>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">➌</div>
+                    <div>
+                        <div class="benefit-title">Выгодные курсы</div>
+                        <div class="benefit-description">Совершайте обмены по самым выгодным курсам на рынке в реальном времени.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='obmen'>
+    <img src="img/obm3.png" class="hover-image">
+    <img src="img/obm4.png" class="hover-image">
+    <img src="img/obm5.png" class="hover-image">
+    <img src="img/obm6.png" class="hover-image">
+    <img src="img/obm7.png" class="hover-image">
+    <img src="img/obm10.png" class="hover-image">
+</div>
+        <footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Информация</h3>
+            <ul>
+                <li><a href="FAQ/FAQ.html">FAQ</a></li>
+                <li><a href="warning/warning.html">Предупреждение</a></li>
+                <li><a href='reviews/reviews.html'>Отзывы</a></li>
+                <li><a href="rules/rules.html">Правила</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Аккаунт</h3>
+            <ul>
+                <li><a href="/account">Личный кабинет</a></li>
+                <li><a href="/security">Настройки безопасности</a></li>
+                <li><a href="operations/operations.html">Проверка статуса заявки</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Контакты</h3>
+            <p>+7 (812) 218-29-17</p>
+            <br>
+            <p>tokentraders.helper@gmail.com</p>
+            <br>
+            <p>@TK_Helper</p><br>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p><a href="">© 2023-2024 TokenTraders — Обменный пункт электронных валют</a></p>
+        <p><a href="rules/rules.html">Правила сайта</a> | <a href="FAQ/FAQ.html">FAQ</a> | <a href="AML/AML.html">Политика AML</a></p>
+    </div>
+
+</footer>
+    </div>
+        
+    
+    <script src="JS.js">
+    function schet() {
+        var number = parseFloat(document.getElementById("yougive").value);
+        var result = number * 48;
+        document.getElementById("youget").value = result;
+    }
+    </script>
+
+     <div id="unsupported-message">
+    <p>Обменник не поддерживается на этом разрешении. Пожалуйста, увеличьте разрешение.</p>
+</div>       
+</body>
+<gtm
